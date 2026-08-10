@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/*
+  Tailwind v4 compatibility shims — these restore two v3 defaults the app's
+  markup relies on, so the upgrade stays visually identical:
+    1. borders default to gray-200 instead of currentColor
+       (e.g. the navbar's `border-b-[1px]` carries no explicit colour)
+    2. buttons keep the pointer cursor
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+.leaflet-bottom,
+.leaflet-control,
+.leaflet-panel,
+.leaflet-top {
+  z-index: 0 !important;
+}
+
+.rdrMonth {
+  width: 100% !important;
+}
+
+.rdrCalendarWrapper {
+  width: 100% !important;
+  font-size: 16px !important;
+}
